@@ -13,7 +13,8 @@ Needs a paid Apple Developer membership.
 2. **Notarization key.** App Store Connect → Users and Access → Integrations →
    App Store Connect API → generate a key with the *Developer* role. Download
    `AuthKey_<KEYID>.p8` (it can only be downloaded once). Note the Issuer ID and the Key ID.
-3. **Secrets.** Run these in the repo folder. Each one prompts for the value or
+3. **Secrets.** `scripts/set-apple-secrets.sh` does this step (and the export in step 1)
+   interactively. By hand, run these in the repo folder. Each one prompts for the value or
    reads it from a file, so the value never lands in shell history:
 
 ```bash
