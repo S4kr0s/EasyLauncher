@@ -1,0 +1,74 @@
+:root {
+  --bg: #0e1311;
+  --panel: #151c19;
+  --panel-2: #1b2420;
+  --line: #26322d;
+  --text: #e8efe9;
+  --muted: #8d9b93;
+  --accent: #7bd88f;
+  --accent-ink: #0b1a0f;
+  --accent-soft: rgba(123, 216, 143, 0.12);
+  --warn: #f2c66d;
+  --danger: #ef7d6d;
+  --radius: 12px;
+  font-family: ui-sans-serif, -apple-system, "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+html, body, #app { margin: 0; height: 100%; }
+body { background: var(--bg); overflow: hidden; user-select: none; }
+input, textarea, select { user-select: text; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { border-color: #3a4a43; }
+button:disabled { opacity: 0.5; cursor: default; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; font-weight: 650; }
+button.primary:hover:not(:disabled) { filter: brightness(1.07); }
+button.ghost { background: transparent; border-color: transparent; }
+button.ghost:hover:not(:disabled) { background: var(--panel-2); }
+button.danger { color: var(--danger); }
+
+input, textarea, select {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  outline: none;
+}
+input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+textarea { resize: vertical; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 12px; }
+
+label.field { display: grid; gap: 6px; color: var(--muted); font-size: 12.5px; }
+label.field > span { font-weight: 600; letter-spacing: 0.01em; }
+.hint { color: var(--muted); font-size: 12px; }
+.error { color: var(--danger); }
+.row { display: flex; gap: 8px; align-items: center; }
+
+.scrim {
+  position: fixed; inset: 0; background: rgba(4, 8, 6, 0.6);
+  display: grid; place-items: center; z-index: 10;
+}
+.modal {
+  width: min(520px, calc(100vw - 32px)); max-height: calc(100vh - 64px); overflow: auto;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 22px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+.modal h2 { margin: 0 0 16px; font-size: 18px; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #26322d; border-radius: 10px; border: 2px solid var(--bg); }

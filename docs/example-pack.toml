@@ -1,0 +1,77 @@
+# Example input for `ezl build`. Point it at a working instance folder (for example
+# a Prism instance's `.minecraft`) and it writes pack.json plus files/ to the output.
+#
+#   ezl build ~/PrismLauncher/instances/ATM10/minecraft -c pack.toml -o site/atm10
+#   ezl hub site --name "My Servers"
+#
+# Upload `site/` anywhere static and send your friends the URL of site/hub.json.
+
+id = "atm10"
+name = "All the Mods 10"
+version = "2025.11.3"            # bump on every release (ezl build --version also works)
+description = "Our survival server"
+icon = "icon.png"                # path inside the instance folder; the build fails if it is missing
+# Never shipped, even if a [[files]] rule matches.
+exclude = ["config/xaero/**", "**/*.bak"]
+changelog = """
+Added Create 6.
+Removed Mekanism Generators.
+"""
+
+[minecraft]
+version = "1.21.1"               # or "latest-release" / "latest-snapshot"
+loader = "neoforge"              # vanilla | fabric | quilt | forge | neoforge
+loader_version = "21.1.267"      # optional: newest stable if left out
+memory_mb = 8192
+# java = 21
+# jvm_args = ["-XX:+UseZGC"]
+
+[[servers]]
+name = "ATM10"
+address = "mc.example.com"
+
+[sync]
+managedDirs = ["mods"]
+extraFiles = "disable"           # keep | disable | delete: mods players added themselves
+
+# Rules are checked top to bottom; the first match wins. Files no rule matches are
+# left out. Jars and zips are matched by sha1: found on Modrinth → linked there;
+# installed by Prism from CurseForge → players download them in their browser.
+# Any other jar/zip needs `page` or `self_host`, or the build stops.
+[[files]]
+glob = "mods/our-server-tweaks-*.jar"
+self_host = true                 # your own mod: shipped from your host
+
+[[files]]
+glob = "mods/somemod-*.jar"
+page = "https://example.com/somemod/download"   # players fetch it in their browser
+
+[[files]]
+glob = "mods/journeymap*"
+optional = true
+
+[[files]]
+glob = "mods/*.jar"
+policy = "managed"
+
+[[files]]
+glob = "config/**"
+policy = "config"                # players' tweaks survive updates
+
+[[files]]
+glob = "defaultconfigs/**"
+policy = "managed"
+
+[[files]]
+glob = "kubejs/**"
+policy = "managed"
+
+[[files]]
+glob = "resourcepacks/*.zip"
+policy = "seed"
+
+# options.txt is merged key by key: keybinds and the player's own settings stay.
+[keys."options.txt"]
+defaults = { renderDistance = "12", guiScale = "3" }
+force = { "resourcePacks" = '["vanilla","file/Our Pack.zip"]' }
+defaults_from_instance = ["key_*"]   # ship your keybinds as defaults for new players
