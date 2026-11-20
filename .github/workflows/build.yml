@@ -72,6 +72,20 @@ jobs:
         env:
           # Repository variable, once the Microsoft app is approved.
           EASYLAUNCHER_MS_CLIENT_ID: ${{ vars.EASYLAUNCHER_MS_CLIENT_ID }}
+      # Tauri notarizes the .app only; notarize and staple the disk image as well.
+      - name: Notarize the dmg
+        if: runner.os == 'macOS' && env.APPLE_SIGNING_IDENTITY != ''
+        shell: bash
+        run: |
+          dmg=$(find target -path '*/bundle/dmg/*.dmg' | head -1)
+          if [ -n "${APPLE_API_KEY:-}" ]; then
+            auth=(--key "$APPLE_API_KEY_PATH" --key-id "$APPLE_API_KEY" --issuer "$APPLE_API_ISSUER")
+          else
+            auth=(--apple-id "$APPLE_ID" --password "$APPLE_PASSWORD" --team-id "$APPLE_TEAM_ID")
+          fi
+          xcrun notarytool submit "$dmg" "${auth[@]}" --wait --timeout 30m
+          xcrun stapler staple "$dmg"
+          xcrun stapler validate "$dmg"
       - uses: actions/upload-artifact@v4
         with:
           name: EasyLauncher-${{ matrix.os }}
