@@ -1,0 +1,72 @@
+/* EasyKit 0.2.2 · Mac Utility Line launcher tokens */
+:root {
+  --surface-window: #151515;
+  --surface-card: #1e1e1e;
+  --surface-panel: #1c1c1c;
+  --surface-tile: rgba(255,255,255,0.06);
+  --surface-tile-hover: rgba(255,255,255,0.11);
+  --surface-control: rgba(255,255,255,0.2);
+  --control-shade: rgba(255,255,255,0.1);
+  --track: rgba(255,255,255,0.13);
+  --hairline: rgba(255,255,255,0.08);
+  --hairline-strong: rgba(255,255,255,0.14);
+  --ink: #f2f2f2;
+  --ink-secondary: #969696;
+  --accent: #0a84ff;
+  --accent-gloss: #4fa6ff;
+  --accent-text: #4aa3ff;
+  --on-accent: #ffffff;
+  --live: #34c759;
+  --warn: #e59a38;
+  --danger: #e5534b;
+  --series-1: #4fa3e3;
+  --series-2: #8a8cf5;
+  --series-3: #4ab8a8;
+  --series-4: #9c968b;
+  --series-5: #b48ce2;
+  --shadow-panel: 0 24px 60px rgba(0,0,0,0.45), 0 4px 14px rgba(0,0,0,0.3), 0 0 0 0.5px rgba(0,0,0,0.55);
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --radius-sm: 7px;
+  --radius-md: 14px;
+  --radius-card: 16px;
+  --radius-panel: 20px;
+  --radius-pill: 999px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --text-window-title: 700 26px/32px var(--font-display);
+  --text-panel-title: 700 15px/20px var(--font-sans);
+  --text-body: 400 13px/16px var(--font-sans);
+  --text-section-label: 600 11px/14px var(--font-sans);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --surface-window: #f5f5f5;
+    --surface-card: #ffffff;
+    --surface-panel: #f2f2f2;
+    --surface-tile: rgba(0,0,0,0.04);
+    --surface-tile-hover: rgba(0,0,0,0.08);
+    --surface-control: #ffffff;
+    --control-shade: #f0f0f0;
+    --track: rgba(0,0,0,0.1);
+    --hairline: rgba(0,0,0,0.08);
+    --hairline-strong: rgba(0,0,0,0.14);
+    --ink: #1a1a1a;
+    --ink-secondary: #666666;
+    --accent: #007aff;
+    --accent-gloss: #4a9eff;
+    --accent-text: #0062cc;
+    --live: #1a7a33;
+    --warn: #a35600;
+    --danger: #c4170c;
+    --series-1: #00699f;
+    --series-2: #5254c4;
+    --series-3: #0e7a6d;
+    --series-4: #6e685f;
+    --series-5: #7b4db8;
+    --shadow-panel: 0 24px 60px rgba(0,0,0,0.18), 0 4px 14px rgba(0,0,0,0.1), 0 0 0 0.5px rgba(0,0,0,0.12);
+  }
+}

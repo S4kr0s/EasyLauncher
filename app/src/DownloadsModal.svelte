@@ -78,7 +78,7 @@
     <div class="list">
       {#each items as i (i.sha1 + i.path)}
         {@const ok = found.includes(i.sha1)}
-        <div class="item" class:ok>
+        <div class="item">
           <div class="who">
             <b>{i.name}</b>
             <span class="hint">{i.filename ?? i.path.split("/").pop()} · {mb(i.size)}</span>
@@ -109,15 +109,14 @@
 
 <style>
   .wide { width: min(640px, 92vw); }
-  .lead { line-height: 1.5; margin: 0 0 14px; color: #c3cfc7; }
+  .lead { line-height: 1.5; margin: 0 0 14px; color: var(--ink); }
   .progress { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
-  .bar { flex: 1; height: 6px; background: var(--bg); border-radius: 6px; overflow: hidden; }
-  .fill { height: 100%; background: var(--accent); transition: width 0.3s; }
+  .bar { flex: 1; height: 6px; background: var(--track); border-radius: var(--radius-pill); overflow: hidden; }
+  .fill { height: 100%; background: var(--series-1); transition: width 0.3s; }
   .list { max-height: 46vh; overflow: auto; display: grid; gap: 6px; padding-right: 4px; }
-  .item { display: flex; gap: 10px; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; }
-  .item.ok { opacity: 0.6; }
+  .item { display: flex; gap: 10px; align-items: center; padding: 8px 10px; border-bottom: 1px solid var(--hairline); }
   .who { flex: 1; display: grid; min-width: 0; }
   .who .hint { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .found { display: flex; gap: 4px; align-items: center; color: var(--accent); font-size: 12.5px; }
+  .found { display: flex; gap: 4px; align-items: center; color: var(--live); font-size: 12.5px; }
   .end { justify-content: flex-end; margin-top: 16px; align-items: center; }
 </style>

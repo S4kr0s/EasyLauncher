@@ -113,14 +113,14 @@
 </div>
 
 <style>
-  .acc { display: flex; gap: 10px; align-items: center; padding: 10px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 6px; }
-  .acc.on { border-color: rgba(123, 216, 143, 0.35); background: var(--accent-soft); }
-  .avatar { width: 32px; height: 32px; border-radius: 6px; display: grid; place-items: center; background: var(--panel-2); font-weight: 700; color: var(--muted); }
+  .acc { display: flex; gap: 10px; align-items: center; padding: 10px; border-bottom: 1px solid var(--hairline); margin-bottom: 6px; }
+  .acc.on { background: var(--surface-tile-hover); }
+  .avatar { width: 32px; height: 32px; border-radius: 6px; display: grid; place-items: center; background: var(--surface-tile); font-weight: 700; color: var(--ink-secondary); }
   .who { flex: 1; display: grid; }
-  .badge { display: flex; gap: 4px; align-items: center; color: var(--accent); font-size: 12.5px; }
+  .badge { display: flex; gap: 4px; align-items: center; color: var(--live); font-size: 12.5px; }
   .add { display: grid; gap: 12px; margin-top: 14px; }
-  .code { margin-top: 14px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel-2); }
+  .code { margin-top: 14px; padding: 14px; border: 1px solid var(--hairline); border-radius: var(--radius-md); background: var(--surface-tile); }
   .code p { margin: 0 0 10px; line-height: 1.45; }
-  .code .big { font-size: 30px; font-weight: 800; letter-spacing: 0.18em; font-family: ui-monospace, Menlo, monospace; margin-bottom: 10px; user-select: text; }
+  .code .big { font-size: 30px; font-weight: 800; letter-spacing: 0.18em; font-family: var(--font-mono); margin-bottom: 10px; user-select: text; }
   .end { justify-content: flex-end; margin-top: 18px; }
 </style>

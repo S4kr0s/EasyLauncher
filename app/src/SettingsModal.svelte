@@ -83,12 +83,12 @@
 </div>
 
 <style>
-  h3 { margin: 18px 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  h3 { margin: 18px 0 6px; font: var(--text-section-label); font-variant-numeric: tabular-nums; color: var(--ink-secondary); }
   h3:first-of-type { margin-top: 0; }
-  .hub { display: flex; gap: 8px; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; margin: 8px 0; }
+  .hub { display: flex; gap: 8px; align-items: center; padding: 8px 10px; border-bottom: 1px solid var(--hairline); margin: 8px 0; }
   .who { flex: 1; display: grid; min-width: 0; }
   .url { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .adv { display: grid; gap: 14px; margin-top: 8px; }
-  .link { color: var(--accent); padding: 8px 0; margin-top: 10px; }
+  .link { color: var(--accent-text); padding: 8px 0; margin-top: 10px; }
   .end { justify-content: flex-end; margin-top: 18px; }
 </style>
